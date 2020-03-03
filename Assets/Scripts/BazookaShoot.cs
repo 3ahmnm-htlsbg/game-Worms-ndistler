@@ -22,7 +22,7 @@ public class BazookaShoot : MonoBehaviour
             gunCubeSpawnRot = bulletSpawnCube.transform.rotation;
             bulletInst = Instantiate(bullet, gunCubeSpawnPos, gunCubeSpawnRot) as GameObject;
             Rigidbody rbShoot = bulletInst.GetComponent<Rigidbody>();
-            rbShoot.AddForce(500f, 0f, 0f);
+            rbShoot.AddForce(transform.up * -500f);
         }
     }
 
