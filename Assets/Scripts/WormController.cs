@@ -4,28 +4,65 @@ using UnityEngine;
 
 public class WormController : MonoBehaviour
 {
-    private Rigidbody rb;
+    private Rigidbody rbA;
+    private Rigidbody rbB;
+    private bool isLeft;
 
+    [SerializeField] private GameObject playerA;
+    [SerializeField] private GameObject BazookaA;
+
+    [SerializeField] private GameObject playerB;
+    [SerializeField] private GameObject BazookaB;
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rbA = playerA.GetComponent<Rigidbody>();
+        rbB = playerB.GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+        //ONE
+        //move
         if (Input.GetKeyDown(KeyCode.W))
         {
-            rb.AddForce(0f, 400f, 0f);
+            rbA.AddForce(0f, 400f, 0f);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce(-40f, 0f, 0f);
+            rbA.AddForce(-40f, 0f, 0f);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            rb.AddForce(40f, 0f, 0f);
+            rbA.AddForce(40f, 0f, 0f);
         }
+        //shoot 
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            BazookaA.GetComponent<BazookaShoot>().Shoot();
+        }
+        //TWO
+        //move
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            rbB.AddForce(0f, 400f, 0f);
+        }
+
+        if (Input.GetKey(KeyCode.J))
+        {
+            rbB.AddForce(-40f, 0f, 0f);
+        }
+
+        if (Input.GetKey(KeyCode.L))
+        {
+            rbB.AddForce(40f, 0f, 0f);
+        }
+        //shoot
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            BazookaB.GetComponent<BazookaShoot>().Shoot();
+        }
+
     }
 }

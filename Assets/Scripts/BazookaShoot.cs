@@ -14,16 +14,13 @@ public class BazookaShoot : MonoBehaviour
 
     private Quaternion gunCubeSpawnRot;
 
-    void Update()
+    public void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            gunCubeSpawnPos = bulletSpawnCube.transform.position;
-            gunCubeSpawnRot = bulletSpawnCube.transform.rotation;
-            bulletInst = Instantiate(bullet, gunCubeSpawnPos, gunCubeSpawnRot) as GameObject;
-            Rigidbody rbShoot = bulletInst.GetComponent<Rigidbody>();
-            rbShoot.AddForce(transform.up * -500f);
-        }
+        gunCubeSpawnPos = bulletSpawnCube.transform.position;
+        gunCubeSpawnRot = bulletSpawnCube.transform.rotation;
+        bulletInst = Instantiate(bullet, gunCubeSpawnPos, gunCubeSpawnRot) as GameObject;
+        Rigidbody rbShoot = bulletInst.GetComponent<Rigidbody>();
+        rbShoot.AddForce(transform.up * -500f);
     }
 
 }
