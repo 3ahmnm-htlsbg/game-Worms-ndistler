@@ -21,5 +21,13 @@ public class HealthManager : MonoBehaviour
             textPlayerLife.text = health.ToString();
             Destroy(collider.gameObject);
         }
+
+        if (collider.tag == "HealthCube")
+        {
+            Destroy(collider.gameObject);
+            health += 2;
+            textPlayerLife.text = health.ToString();
+        }
+
     }
 }
