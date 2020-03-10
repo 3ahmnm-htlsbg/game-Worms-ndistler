@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DamageBullet
   - HealthCube
+  - Ground
   layers:
   - Default
   - TransparentFX
